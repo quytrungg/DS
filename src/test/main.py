@@ -1,6 +1,3 @@
-from copyreg import constructor
-
-
 class Main:
     def __init__(self, name):
         self.name = name
