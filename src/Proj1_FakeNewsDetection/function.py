@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 
 def preProcess(df, labels, test_size, randome_state):
     x_train,x_test,y_train,y_test=train_test_split(df['text'], labels, test_size=0.2, random_state=7)
-    return
+    return x_train,x_test,y_train,y_test
 
 def passiveAgressiveClassifier():
 
@@ -22,9 +22,17 @@ def main():
 
     # initial props
     colName = df.columns
-    label = df.label
+    labels = df.label
     shape = df.shape
 
     # display DataFrame
-    print(label)
-    print(df.head())
+    print(shape)
+    print(df.head(1))
+    
+    x_train,x_test,y_train,y_test = preProcess(df, labels, test_size=0.9, randome_state=7)
+    
+    tfidf_vectorizer=TfidfVectorizer(stop_words='english', max_df=0.7)
+    #DataFlair - Fit and transform train set, transform test set
+    print(x_train.loc[6237])
+    tfidf_train=tfidf_vectorizer.fit_transform(x_train.loc[6237]) 
+    print('sdlkf', tfidf_train)
