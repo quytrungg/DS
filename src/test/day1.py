@@ -1,3 +1,5 @@
+# question: given k and BST, find ceil and floor of k (floor: smaller but closest to k, ceil: larger but closest to k)
+
 class Node:
   def __init__(self, value):
     self.left = None
