@@ -1,3 +1,5 @@
+# question: inverse BST (smaller -> right, bigger -> left) 
+
 class Node:
     def __init__(self, value):
         self.left = None
