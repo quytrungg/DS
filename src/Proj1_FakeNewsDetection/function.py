@@ -27,12 +27,12 @@ def main():
 
     # display DataFrame
     print(shape)
-    print(df.head(1))
+    print(df.head(10))
     
-    x_train,x_test,y_train,y_test = preProcess(df, labels, test_size=0.9, randome_state=7)
+    # x_train,x_test,y_train,y_test = preProcess(df, labels, test_size=0.9, randome_state=7)
     
-    tfidf_vectorizer=TfidfVectorizer(stop_words='english', max_df=0.7)
-    #DataFlair - Fit and transform train set, transform test set
-    print(x_train.loc[6237])
-    tfidf_train=tfidf_vectorizer.fit_transform(x_train.loc[6237]) 
-    print('sdlkf', tfidf_train)
+    # tfidf_vectorizer=TfidfVectorizer(stop_words='english', max_df=0.7)
+    # #DataFlair - Fit and transform train set, transform test set
+    # print(x_train.loc[6237])
+    # tfidf_train=tfidf_vectorizer.fit_transform(x_train.loc[6237]) 
+    # print('sdlkf', tfidf_train)
