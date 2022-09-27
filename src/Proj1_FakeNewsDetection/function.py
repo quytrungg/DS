@@ -1,38 +1,52 @@
 import numpy as np
 import pandas as pd
-import itertools
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import PassiveAggressiveClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 
-def preProcess(df, labels, test_size, randome_state):
+def splitData(df, labels, test_size=0.2, random_state=7):
     x_train,x_test,y_train,y_test=train_test_split(df['text'], labels, test_size=0.2, random_state=7)
     return x_train,x_test,y_train,y_test
 
-def passiveAgressiveClassifier():
+def tfidfVectorizer(stop_words='english', max_df=0.7):
+    tfidf = TfidfVectorizer(stop_words='english', max_df=0.7)
+    return tfidf
 
-    return
+def passiveAgressiveClassifier(max_iter=50):
+    pac = PassiveAggressiveClassifier(max_iter=50)
+    return pac
 
 def main():
     df = pd.read_csv('news.csv')
-
-    # replace first column's name with 'id'
     df.rename(columns={'Unnamed: 0':'id'}, inplace=True)
 
-    # initial props
     colName = df.columns
     labels = df.label
     shape = df.shape
 
-    # display DataFrame
-    print(shape)
-    print(df.head(10))
+    # print(shape)
+    # print(df.head(10))
     
-    # x_train,x_test,y_train,y_test = preProcess(df, labels, test_size=0.9, randome_state=7)
+    x_train, x_test, y_train, y_test = splitData(df, labels)
+
+    tfidf_vectorizer = tfidfVectorizer()
+
+    tfidf_train = tfidf_vectorizer.fit_transform(x_train)
+    tfidf_test = tfidf_vectorizer.transform(x_test)
+
+    pac = passiveAgressiveClassifier()
+
+    pac.fit(tfidf_train, y_train)
+    y_pred = pac.predict(tfidf_test)
+
+    score = accuracy_score(y_test, y_pred)
+    print(f'Accuracy: {round(score*100, 2)}%')
     
-    # tfidf_vectorizer=TfidfVectorizer(stop_words='english', max_df=0.7)
-    # #DataFlair - Fit and transform train set, transform test set
-    # print(x_train.loc[6237])
-    # tfidf_train=tfidf_vectorizer.fit_transform(x_train.loc[6237]) 
-    # print('sdlkf', tfidf_train)
+    print(confusion_matrix(y_test,y_pred, labels=['FAKE','REAL']))
+
+    display = ConfusionMatrixDisplay.from_predictions(y_test, y_pred)
+    display.figure_.suptitle("Fake News Dectection Confusion Matrix")
+
+    plt.show()
