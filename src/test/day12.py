@@ -1,6 +1,14 @@
-def intersection(a, b):
+# question: given 2 linked list, find intersect linked list
 
-    return 
+def intersection(a, b):
+  while a != None:
+    cur = b
+    while cur != None:
+      if cur.val == a.val and cur.next.val == a.next.val:
+        return a
+      cur = cur.next
+    a = a.next
+  return None
 
 class Node(object):
   def __init__(self, val):

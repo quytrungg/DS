@@ -1,3 +1,5 @@
+# question: given a linked list and integer k, remove k-th last element
+
 class Node:
   def __init__(self, val, next=None):
     self.val = val
