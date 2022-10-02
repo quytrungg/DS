@@ -11,15 +11,18 @@ def removeConsecutiveSumTo0(node):
   temp = Node(-1)
   cur = temp
   cur.next = node
-  while cur.next != None:
-    cur2 = cur.next
-    sum += cur2.value
-    while sum != 10:
-      cur2 = cur2.next
+  while True:
+    cur2 = node
+    while cur2 != None:
       sum += cur2.value
-    cur2 = cur2.next
-    cur.next = cur2
-    cur = cur.next
+      cur2 = cur2.next
+      if sum == 0:
+        node.next = cur2
+        break
+    if(node.next == None):
+      break
+    node = node.next
+  node = cur.next
   return node
 
 node = Node(10)
