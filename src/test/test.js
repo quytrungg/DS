@@ -10,4 +10,13 @@ function coinFlipProbability(step, h, t) {
     return coinFlipProbability(step - 1, h - 1, t) + coinFlipProbability(step - 1, h, t - 1);
 }
 
-console.log(coinFlipProbability(3, 2, 1))
+// console.log(coinFlipProbability(3, 2, 1))
+
+const arr = [1, 2, 3, 4]
+
+const sum = arr.reduce((key, nextkey) => {
+    return key + nextkey;
+})
+
+console.log(sum)
+
