@@ -9,6 +9,14 @@ class Solution:
            
         for i in range(len(nums) - nonZeroPos):
             nums[nonZeroPos + i] = 0
+    
+    def moveZeros2(self, nums):
+        indexZeros = 0
+
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[indexZeros], nums[i] = nums[i], nums[indexZeros]
+                indexZeros += 1
 
 nums = [0, 0, 0, 2, 0, 1, 3, 4, 0, 0]
 Solution().moveZeros(nums)

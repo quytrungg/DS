@@ -29,9 +29,20 @@ bool func(int *arr, int n)
     return false;
 }
 
+void swap(int &a, int &b)
+{
+    a = a ^ b;
+    std::cout << a << " " << b << "\n";
+    b = b ^ a;
+    std::cout << a << " " << b << "\n";
+    a = a ^ b;
+    std::cout << a << " " << b << "\n";
+}
+
 int main()
 {
-    int a[4] = {3, 12, 5, 13};
-    std::cout << func(a, 4);
+    int a = 2, b = 9;
+    swap(a, b);
+    std::cout << a << " " << b;
     return 0;
 }
