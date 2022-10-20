@@ -4,8 +4,14 @@ class Node():
     self.left = left
     self.right = right
 
+result = []
 def valuesAtHeight(root, height):
-    return
+    if not root:
+        return
+    valuesAtHeight(root.left, height-1)
+    if height == 1:
+        result.append(root.value)
+    valuesAtHeight(root.right, height-1)
 
 #     1
 #    / \
@@ -19,5 +25,6 @@ a.right = Node(3)
 a.left.left = Node(4)
 a.left.right = Node(5)
 a.right.right = Node(7)
-print(valuesAtHeight(a, 3))
+valuesAtHeight(a, 3)
+print(result)
 # [4, 5, 7]
