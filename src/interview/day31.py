@@ -27,4 +27,11 @@ a.left.right = Node(5)
 a.right.right = Node(7)
 valuesAtHeight(a, 3)
 print(result)
+
+def sum1n(n):
+    if n == 0:
+        return 0
+    return n + sum1n(n-1)
+
+print(sum1n(10))
 # [4, 5, 7]
