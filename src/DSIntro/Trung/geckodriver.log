@@ -528,3 +528,26 @@ DevTools listening on ws://127.0.0.1:57867/devtools/browser/c262ed1b-a1ac-4faa-9
 JavaScript error: https://media.ethicalads.io/media/client/v1.4.0/ethicalads.min.js, line 1: Error: No ad placements found.
 JavaScript error: resource:///actors/FormValidationChild.jsm, line 183: TypeError: this._element is null
 1665904268695	Marionette	INFO	Stopped listening on port 57876
+1666421533803	geckodriver	INFO	Listening on 127.0.0.1:50612
+1666421534136	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "50613" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/m7/368g6v5d01g4x7brwcqrgvg40000gn/T/rust_mozprofileMLTiMD"
+1666421535051	Marionette	INFO	Marionette enabled
+2022-10-22 13:52:15.058 plugin-container[44106:891424] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-10-22 13:52:15.058 plugin-container[44106:891424] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-10-22 13:52:15.064 plugin-container[44106:891424] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-10-22 13:52:15.064 plugin-container[44106:891424] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-10-22 13:52:15.064 plugin-container[44106:891426] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-10-22 13:52:15.064 plugin-container[44106:891426] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1666421535122	Marionette	INFO	Listening on port 50620
+Read port: 50620
+WebDriver BiDi listening on ws://127.0.0.1:50613
+1666421535474	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/m7/368g6v5d01g4x7brwcqrgvg40000gn/T/rust_mozprofileMLTiMD/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50613/devtools/browser/70ff86e0-9ad5-484b-b97c-e3dfcdcf5d3a
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 768))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 420))
+JavaScript error: resource:///actors/FormValidationChild.jsm, line 183: TypeError: this._element is null
+JavaScript error: https://media.ethicalads.io/media/client/v1.4.0/ethicalads.min.js, line 1: Error: No ad placements found.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.python.org."
+JavaScript error: https://media.ethicalads.io/media/client/v1.4.0/ethicalads.min.js, line 1: Error: No ad placements found.
+JavaScript error: resource:///actors/FormValidationChild.jsm, line 183: TypeError: this._element is null
+1666421956782	Marionette	INFO	Stopped listening on port 50620
