@@ -9,8 +9,7 @@ def longest_substring_with_k_distinct_characters(s, k):
                 check.append(s[end])
                 k -= 1
             end += 1
-        if end - i + 1 > max:
-            max = end - i + 1
+        max = end - i + 1 if max < end - i + 1 else max
 
     return max
 
