@@ -1,3 +1,5 @@
+import numpy as np
+
 class TreeNode:
   def __init__(self, key):
     self.left = None
@@ -28,5 +30,4 @@ node.left.left = TreeNode(2)
 node.right.left = TreeNode(4)
 node.right.right = TreeNode(9)
 print(largest_bst_subtree(node))
-print(np.arrary([]))
 #749
