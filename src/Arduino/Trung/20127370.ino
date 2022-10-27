@@ -9,7 +9,7 @@ void setup()
   	pinMode(led[i], OUTPUT);
   }
   pinMode(button, INPUT);
-  Serial.begin(9600);
+  // Serial.begin(9600);
 }
 
 // Function to turn on all of the LEDs
