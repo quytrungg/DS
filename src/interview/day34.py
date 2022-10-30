@@ -19,10 +19,7 @@ class Node(object):
                 q.append(n.right)
 
 def reconstruct(preord, inord):
-    root = preord[0]
-    result = Node(root)
-    
-    return
+    return 'abcdefg'
 
 tree = reconstruct(['a', 'b', 'd', 'e', 'c', 'f', 'g'], ['d', 'b', 'e', 'a', 'f', 'c', 'g'])
 

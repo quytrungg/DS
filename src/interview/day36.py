@@ -4,7 +4,7 @@ def isSorted(words, order):
         if len(words[i]) < len(words[i+1]):
             temp = len(words[i])
             if idx < temp:
-                if order.index()
+                pass
 
 
     return 
