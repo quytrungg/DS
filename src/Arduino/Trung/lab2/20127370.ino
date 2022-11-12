@@ -15,7 +15,7 @@ void systemStatus(int l1, int l2, int l3, int b){
   digitalWrite(led1, l1);
   digitalWrite(led2, l2);
   digitalWrite(led3, l3);
-  digitalWrite(buzzer, b);
+  analogWrite(buzzer, b);
 }
 
 void setup(){
@@ -33,14 +33,14 @@ void loop(){
     systemStatus(HIGH, LOW, LOW, LOW);
   }
   else if(getDistance() > 50 and getDistance() < 150){
-  	systemStatus(LOW, HIGH, LOW, HIGH);
+  	systemStatus(LOW, HIGH, LOW, 10);
     delay(1000);
     digitalWrite(led2, LOW);
     digitalWrite(buzzer, LOW);
     delay(1000);
   }
   else{
-  	systemStatus(HIGH, HIGH, HIGH, HIGH);
+  	systemStatus(HIGH, HIGH, HIGH, 10);
     delay(getDistance() * 10);
     systemStatus(LOW, LOW, LOW, LOW);
     delay(getDistance() * 10);
