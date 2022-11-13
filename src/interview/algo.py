@@ -64,25 +64,54 @@ t.forward(10)
 t.right(90)
 t.forward(80)
 t.right(120)
-t.forward(25)
+t.forward(20)
 t.end_fill()
 
 # third bar
-
+initialize('blue', size, 100, -80)
+t.begin_fill()
+t.right(45)
+t.forward(120)
+t.right(100)
+t.forward(15)
+t.right(80)
+t.forward(140)
+t.right(140)
+t.forward(25)
+t.end_fill()
 # 4th bar
+initialize('blue', size, 180, -80)
+t.begin_fill()
+t.right(35)
+t.forward(170)
+t.right(100)
+t.forward(15)
+t.right(70)
+t.forward(150)
+t.right(75)
+t.forward(45)
+t.end_fill()
 
 # 5th bar
 
+
 # 6th bar
+
 
 # 7th bar
 
+
 # 8th bar
+
 
 # 9th bar
 
+
 # 10th bar
+
 
 # 11th bar
 
+
 # 12th bar
+
