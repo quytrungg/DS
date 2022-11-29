@@ -1,0 +1,239 @@
+[
+    {
+        "id": "ea2f3a4e91bf6245",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6a7f48d8ee918f81",
+        "type": "debug",
+        "z": "ea2f3a4e91bf6245",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "edcfc82eceb6519e",
+        "type": "mqtt in",
+        "z": "ea2f3a4e91bf6245",
+        "name": "",
+        "topic": "20127370/name",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "5897dd0f9dbfa4ec",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 320,
+        "wires": [
+            [
+                "6a7f48d8ee918f81",
+                "09f98870eff3cb88"
+            ]
+        ]
+    },
+    {
+        "id": "1fe6f53099792b78",
+        "type": "ui_button",
+        "z": "ea2f3a4e91bf6245",
+        "name": "",
+        "group": "221272ecfb695c50",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Search",
+        "tooltip": "This Search button finds student's name based on MSSV",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "4c08d4a20fa65d55"
+            ]
+        ]
+    },
+    {
+        "id": "a82300a7481812a7",
+        "type": "ui_text_input",
+        "z": "ea2f3a4e91bf6245",
+        "name": "",
+        "label": "Enter MSSV",
+        "tooltip": "",
+        "group": "221272ecfb695c50",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "d3babaeea25eb835"
+            ]
+        ]
+    },
+    {
+        "id": "09f98870eff3cb88",
+        "type": "ui_text",
+        "z": "ea2f3a4e91bf6245",
+        "group": "221272ecfb695c50",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Student's name",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 440,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "d3babaeea25eb835",
+        "type": "function",
+        "z": "ea2f3a4e91bf6245",
+        "name": "function 1",
+        "func": "flow.set('mssv', msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4c08d4a20fa65d55",
+        "type": "function",
+        "z": "ea2f3a4e91bf6245",
+        "name": "function 2",
+        "func": "msg.payload = flow.get('mssv', msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 200,
+        "wires": [
+            [
+                "c2fe4142fb34b61e",
+                "dccb3adc8b30a067"
+            ]
+        ]
+    },
+    {
+        "id": "c2fe4142fb34b61e",
+        "type": "mqtt out",
+        "z": "ea2f3a4e91bf6245",
+        "name": "",
+        "topic": "20127370/mssv",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5897dd0f9dbfa4ec",
+        "x": 620,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "dccb3adc8b30a067",
+        "type": "debug",
+        "z": "ea2f3a4e91bf6245",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "5897dd0f9dbfa4ec",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "221272ecfb695c50",
+        "type": "ui_group",
+        "name": "Quiz 6",
+        "tab": "95077aa704a86807",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "95077aa704a86807",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
